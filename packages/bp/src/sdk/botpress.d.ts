@@ -137,6 +137,7 @@ declare module 'botpress/sdk' {
     skills?: Skill[]
     /** An array of available bot templates when creating a new bot */
     botTemplates?: BotTemplate[]
+    components?: ComponentSnippet[]
     translations?: { [lang: string]: object }
     /** List of new conditions that the module can register */
     dialogConditions?: Condition[]
@@ -252,6 +253,15 @@ declare module 'botpress/sdk' {
      * @return The method should return
      */
     flowGenerator: (skillData: any, metadata: FlowGeneratorMetadata) => Promise<FlowGenerationResult>
+  }
+  /**
+   * Component Snippet is piece of flow you can integrate into your Flow.
+   */
+  export interface ComponentSnippet {
+    /** An identifier for the skill. Use only a-z_- characters. */
+    id: string
+    /** The name that will be displayed in the toolbar for the skill */
+    name: string
   }
 
   export interface FlowGeneratorMetadata {
