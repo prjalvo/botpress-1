@@ -1,3 +1,3 @@
 module.exports = {
-  copyFiles: ['src/bot-templates/**']
+  copyFiles: ['src/bot-templates/**', 'src/components/**']
 }
