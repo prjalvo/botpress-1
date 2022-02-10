@@ -262,6 +262,14 @@ declare module 'botpress/sdk' {
     id: string
     /** The name that will be displayed in the toolbar for the skill */
     name: string
+    /**
+     * This Function will return the Component Snippet to paste in the studio
+     *
+     * @param skillData Provided by the skill view, those are fields edited by the user on the Flow Editor
+     * @param metadata Some metadata automatically provided, like the bot id
+     * @return The method should return
+     */
+    flowGenerator: () => Promise<FlowGenerationResult>
   }
 
   export interface FlowGeneratorMetadata {

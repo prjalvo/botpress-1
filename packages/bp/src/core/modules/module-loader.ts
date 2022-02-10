@@ -7,7 +7,8 @@ import {
   Logger,
   ModuleDefinition,
   ModuleEntryPoint,
-  Skill
+  Skill,
+  ComponentSnippet
 } from 'botpress/sdk'
 import { ObjectCache } from 'common/object-cache'
 import { ModuleInfo } from 'common/typings'
@@ -41,6 +42,7 @@ const MODULE_SCHEMA = joi.object().keys({
   onFlowRenamed: joi.func().optional(),
   onElementChanged: joi.func().optional(),
   skills: joi.array().optional(),
+  components: joi.array().optional(),
   translations: joi.object().optional(),
   botTemplates: joi.array().optional(),
   dialogConditions: joi.array().optional(),
@@ -374,6 +376,23 @@ export class ModuleLoader {
       )
 
     return _.flatten(skills)
+  }
+  /**
+   * Component are a group of node that can be imported in the studio
+   * @returns Return a list of Component Snippet
+   */
+  public async getAllComponents(): Promise<Partial<ComponentSnippet>[]> {
+    const components = Array.from(this.entryPoints.values())
+      .filter(module => module.components)
+      .map(module =>
+        module.components!.map(component => ({
+          id: component.id,
+          name: component.name,
+          moduleName: module.definition.name
+        }))
+      )
+
+    return _.flatten(components)
   }
 
   public async getTranslations(): Promise<any> {
