@@ -19,7 +19,7 @@ const onModuleUnmount = async (bp: typeof sdk) => {
   bp.http.deleteRouterForBot('components')
 }
 
-const componentSnippetRegister: sdk.ComponentSnippet[] = [
+export const componentSnippetRegister: component.ComponentSnippet[] = [
   {
     id: 'api-call',
     name: 'module.basic-components.apiCall',
@@ -58,8 +58,7 @@ const entryPoint: sdk.ModuleEntryPoint = {
     noInterface: true,
     plugins: [],
     moduleView: { stretched: true }
-  },
-  components: componentSnippetRegister
+  }
 }
 
 export default entryPoint

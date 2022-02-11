@@ -48,14 +48,6 @@ export class ModulesRouter extends CustomRouter {
       })
     )
 
-    this.router.get(
-      '/components',
-      this.checkTokenHeader,
-      this.asyncMiddleware(async (_req, res, _next) => {
-        res.send(await this.moduleLoader.getAllComponents())
-      })
-    )
-
     this.router.post(
       '/:moduleName/skill/:skillId/generateFlow',
       this.checkTokenHeader,

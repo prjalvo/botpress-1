@@ -377,23 +377,6 @@ export class ModuleLoader {
 
     return _.flatten(skills)
   }
-  /**
-   * Component are a group of node that can be imported in the studio
-   * @returns Return a list of Component Snippet
-   */
-  public async getAllComponents(): Promise<Partial<ComponentSnippet>[]> {
-    const components = Array.from(this.entryPoints.values())
-      .filter(module => module.components)
-      .map(module =>
-        module.components!.map(component => ({
-          id: component.id,
-          name: component.name,
-          moduleName: module.definition.name
-        }))
-      )
-
-    return _.flatten(components)
-  }
 
   public async getTranslations(): Promise<any> {
     const allTranslations = {}
