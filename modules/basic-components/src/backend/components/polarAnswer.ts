@@ -1,5 +1,6 @@
 import * as sdk from 'botpress/sdk'
 import { uniqueId } from 'lodash'
+import { prettyId } from './utils'
 
 const generateFlow = async (): Promise<sdk.FlowGenerationResult> => {
   return {
@@ -17,7 +18,7 @@ const generateFlow = async (): Promise<sdk.FlowGenerationResult> => {
 const createNodes = () => {
   const nodes: sdk.FlowNode[] = [
     {
-      id: 'entry',
+      id: prettyId(),
       name: 'entry',
       next: [
         {
@@ -33,7 +34,7 @@ const createNodes = () => {
       onReceive: null
     },
     {
-      id: '90853b1928',
+      id: prettyId(),
       name: 'store_greeting',
       next: [
         {

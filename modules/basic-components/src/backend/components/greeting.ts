@@ -1,5 +1,6 @@
 import * as sdk from 'botpress/sdk'
 import { uniqueId } from 'lodash'
+import { prettyId } from './utils'
 
 const generateFlow = async (): Promise<sdk.FlowGenerationResult> => {
   return {
@@ -7,6 +8,7 @@ const generateFlow = async (): Promise<sdk.FlowGenerationResult> => {
     flow: {
       nodes: createNodes(),
       catchAll: {
+        onReceive: [],
         next: []
       }
     }
@@ -14,16 +16,35 @@ const generateFlow = async (): Promise<sdk.FlowGenerationResult> => {
 }
 
 const createNodes = () => {
-  const nodes: sdk.SkillFlowNode[] = [
+  const nodes: sdk.FlowNode[] = [
     {
+      id: prettyId(),
       name: 'entry',
-      onEnter: [
+      next: [
         {
-          type: sdk.NodeActionType.RenderText,
-          name: 'Blabla'
+          condition: 'event.state.session.greeted',
+          node: 'END'
+        },
+        {
+          condition: 'true',
+          node: 'store_greeting'
         }
       ],
-      next: [{ condition: 'true', node: '#' }]
+      onEnter: [],
+      onReceive: null
+    },
+    {
+      id: prettyId(),
+      name: 'store_greeting',
+      next: [
+        {
+          condition: 'true',
+          node: 'END'
+        }
+      ],
+      onEnter: ['builtin/setVariable {"type":"session","name":"greeted","value":"true"}'],
+      onReceive: null,
+      type: 'standard'
     }
   ]
   return nodes
