@@ -26,11 +26,6 @@ export const componentSnippetRegister: component.ComponentSnippet[] = [
     flowGenerator: component.ApiCall.generateFlow
   },
   {
-    id: 'FallBack',
-    name: 'module.basic-components.fallback',
-    flowGenerator: component.Fallback.generateFlow
-  },
-  {
     id: 'Feedback',
     name: 'module.basic-components.feedback',
     flowGenerator: component.Feedback.generateFlow

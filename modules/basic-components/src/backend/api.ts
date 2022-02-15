@@ -26,16 +26,4 @@ export default async (bp: typeof sdk) => {
       throw new UnexpectedError('Could not generate flow', err)
     }
   })
-
-  router.get('/components/:componentId/skills', async (req, res) => {
-    const component = find(componentSnippetRegister, x => x.id === req.params.componentId)
-    if (!component?.flowGenerator) {
-      return res.status(404).send('Invalid component name')
-    }
-    try {
-      res.send(await component.flowGenerator())
-    } catch (err) {
-      throw new UnexpectedError('Could not generate flow', err)
-    }
-  })
 }

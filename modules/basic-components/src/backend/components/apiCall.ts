@@ -75,6 +75,7 @@ const skillsFlow = () => {
       skill: 'CallAPI',
       name: 'call_from_previous_anwser',
       skillData: {
+        randomId: prettyId(),
         method: 'post',
         memory: 'temp',
         randomId: prettyId(),
