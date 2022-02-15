@@ -78,7 +78,7 @@ const skillsFlow = () => {
         randomId: prettyId(),
         method: 'post',
         memory: 'temp',
-        randomId: prettyId(),
+        // @ts-ignore
         body: '{"value": "{{temp.flavor}}"}',
         url: 'http://localhost:8080',
         variable: 'response',
