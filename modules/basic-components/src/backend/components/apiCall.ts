@@ -69,10 +69,6 @@ const createTransitions = (): sdk.NodeTransition[] => {
 }
 
 const skillsFlow = () => {
-  // cat main.flow.json | jq ".nodes[].name"
-  // cat main.flow.json | jq ".nodes[].skill"
-  //  cat skills/* | jq ".skillData"
-
   const flow: any[] = [
     {
       skill: 'CallAPI',
@@ -105,7 +101,6 @@ const skillsFlow = () => {
       }
     }
   ]
-
   return flow
 }
 export default { generateFlow, skillsFlow }

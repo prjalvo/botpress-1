@@ -9,12 +9,17 @@ export default interface ComponentSnippet {
   /** The name that will be displayed in the toolbar for the skill */
   name: string
   /**
-   * This Function will return the Component Snippet to paste in the studio
+   * cat main.flow.json | jq '.nodes | .[] | select(has("skill") | not)'
    *
    * @param skillData Provided by the skill view, those are fields edited by the user on the Flow Editor
    * @param metadata Some metadata automatically provided, like the bot id
    * @return The method should return
    */
   flowGenerator: () => Promise<FlowGenerationResult>
+  /**
+   * cat main.flow.json | jq ".nodes[].name"
+   * cat main.flow.json | jq ".nodes[].skill"
+   * cat skills/* | jq ".skillData"
+   */
   skillsFlow?: () => Promise<any>
 }
