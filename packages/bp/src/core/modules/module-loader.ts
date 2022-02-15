@@ -7,8 +7,7 @@ import {
   Logger,
   ModuleDefinition,
   ModuleEntryPoint,
-  Skill,
-  ComponentSnippet
+  Skill
 } from 'botpress/sdk'
 import { ObjectCache } from 'common/object-cache'
 import { ModuleInfo } from 'common/typings'

@@ -1,5 +1,3 @@
-import { FlowGenerationResult } from 'botpress/sdk'
-
 /**
  * Component Snippet is piece of flow you can integrate into your Flow.
  */
