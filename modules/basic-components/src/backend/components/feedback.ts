@@ -2,7 +2,7 @@ import * as sdk from 'botpress/sdk'
 import { uniqueId } from 'lodash'
 import { prettyId } from './utils'
 
-const generateFlow = async (): Promise<sdk.FlowGenerationResult> => {
+const generateFlow = async (): Promise<any> => {
   return {
     transitions: createTransitions(),
     flow: {
@@ -10,7 +10,8 @@ const generateFlow = async (): Promise<sdk.FlowGenerationResult> => {
       catchAll: {
         next: []
       }
-    }
+    },
+    skills: skillsFlow()
   }
 }
 
@@ -89,4 +90,4 @@ const skillsFlow = () => {
   return flow
 }
 
-export default { generateFlow, skillsFlow }
+export default { generateFlow }

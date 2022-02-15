@@ -2,7 +2,7 @@ import * as sdk from 'botpress/sdk'
 import { uniqueId } from 'lodash'
 import { prettyId } from './utils'
 
-const generateFlow = async (): Promise<sdk.FlowGenerationResult> => {
+const generateFlow = async (): Promise<any> => {
   // Return normal flow and skill flow. I need to do this. Because skills need to be created
   return {
     transitions: createTransitions(),
@@ -12,7 +12,8 @@ const generateFlow = async (): Promise<sdk.FlowGenerationResult> => {
         onReceive: [],
         next: []
       }
-    }
+    },
+    skills: skillsFlow()
   }
 }
 
@@ -103,4 +104,4 @@ const skillsFlow = () => {
   ]
   return flow
 }
-export default { generateFlow, skillsFlow }
+export default { generateFlow }
