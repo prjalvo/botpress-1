@@ -8,7 +8,6 @@ const generateFlow = async (): Promise<sdk.FlowGenerationResult> => {
     flow: {
       nodes: createNodes(),
       catchAll: {
-        onReceive: [],
         next: []
       }
     }
@@ -16,33 +15,76 @@ const generateFlow = async (): Promise<sdk.FlowGenerationResult> => {
 }
 
 const createNodes = () => {
-  const nodes: sdk.FlowNode[] = [
+  // cat main.flow.json | jq '.nodes | .[] | select(has("skill") | not)'
+  const nodes: sdk.SkillFlowNode[] = [
     {
       id: prettyId(),
-      name: 'entry',
+      name: 'yes-answer',
       next: [
         {
-          condition: 'event.state.session.greeted',
-          node: 'END'
-        },
-        {
           condition: 'true',
-          node: 'store_greeting'
+          node: ''
         }
       ],
-      onEnter: [],
-      onReceive: null
+      onEnter: [
+        {
+          name: 'builtin_text',
+          type: sdk.NodeActionType.RenderElement,
+          args: { type: 'text', text: 'Yes answer' }
+        }
+      ],
+      onReceive: null,
+      type: 'standard'
     },
     {
       id: prettyId(),
-      name: 'store_greeting',
+      name: 'no-answer',
       next: [
         {
           condition: 'true',
-          node: 'END'
+          node: ''
         }
       ],
-      onEnter: ['builtin/setVariable {"type":"session","name":"greeted","value":"true"}'],
+      onEnter: [
+        { name: 'builtin_text', type: sdk.NodeActionType.RenderElement, args: { type: 'text', text: 'No answer' } }
+      ],
+      onReceive: null,
+      type: 'standard'
+    },
+    {
+      id: prettyId(),
+      name: 'didnt-understand',
+      next: [
+        {
+          condition: 'true',
+          node: 'choice-fe0bb7'
+        }
+      ],
+      onEnter: [
+        {
+          name: 'builtin_single-choice',
+          type: sdk.NodeActionType.RenderElement,
+          args: {
+            formData: {
+              dropdownPlaceholder$en: '',
+              choices$en: [
+                {
+                  title: 'Yes',
+                  value: 'yes'
+                },
+                {
+                  title: 'No',
+                  value: 'no'
+                }
+              ],
+              markdown$en: true,
+              disableFreeText$en: true,
+              typing$en: true,
+              text$en: 'Yes/No Question'
+            }
+          }
+        }
+      ],
       onReceive: null,
       type: 'standard'
     }
