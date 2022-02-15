@@ -16,4 +16,5 @@ export default interface ComponentSnippet {
    * @return The method should return
    */
   flowGenerator: () => Promise<FlowGenerationResult>
+  skillsFlow?: () => Promise<any>
 }

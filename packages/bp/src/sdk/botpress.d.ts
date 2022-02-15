@@ -253,23 +253,6 @@ declare module 'botpress/sdk' {
      */
     flowGenerator: (skillData: any, metadata: FlowGeneratorMetadata) => Promise<FlowGenerationResult>
   }
-  /**
-   * Component Snippet is piece of flow you can integrate into your Flow.
-   */
-  export interface ComponentSnippet {
-    /** An identifier for the skill. Use only a-z_- characters. */
-    id: string
-    /** The name that will be displayed in the toolbar for the skill */
-    name: string
-    /**
-     * Get the flow
-     */
-    flowGenerator: () => Promise<FlowGenerationResult>
-    /**
-     * Get Everything to create a skillsFlow and the node associated
-     */
-    skillsFlow?: () => Promise<any>
-  }
 
   export interface FlowGeneratorMetadata {
     botId: string
