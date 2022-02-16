@@ -6,14 +6,7 @@
   "description": "Provides easy-to-use components",
   "private": true,
   "main": "dist/backend/index.js",
-  "webpack": {
-    "externals": {
-      "reactstrap": "Reactstrap",
-      "react-select": "ReactSelect",
-      "botpress/select-action-dropdown": "SelectActionDropdown",
-      "botpress/tooltip": "BotpressTooltip"
-    }
-  },
+  "webpack": {},
   "scripts": {
     "build": "node ../../build/module-builder/bin/entry build",
     "watch": "node ../../build/module-builder/bin/entry watch",
