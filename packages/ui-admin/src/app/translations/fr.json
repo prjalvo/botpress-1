@@ -12,7 +12,11 @@
       "resolvedIncidents": "Incidents résolus",
       "timeFrame": "Plage de temps",
       "timespanHour": "1 heure",
-      "timespanHours": "{nb} heures"
+      "timespanHours": "{nb} heures",
+      "deprWarning": {
+        "title": "Avertissement d'obsolescence",
+        "msg": "Nous mettrons fin à la prise en charge des modules personnalisés dans Botpress 13. Un guide de migration sera fourni pour les compétences et les composants personnalisés Webchat. Pour les autres points d'extension, utilisez des hooks et des actions autonomes."
+      }
     },
     "authenticationFailed": "Authentification échouée",
     "botpressIsNotLicensed": "La licence ne semble pas valide. Veuillez mettre à jour votre licence pour réactiver toutes les fonctionnalités.",
@@ -170,6 +174,17 @@
       "restartNow": "Redémarrez le serveur maintenant",
       "serverControl": "Contrôle du serveur",
       "youAreAboutToRestart": "Vous êtes sur le point de redémarrer le serveur Botpress hébergé sur"
+    },
+    "netPromotingScore": {
+      "bestLabel": "Extrêmement probable",
+      "button": "Envoyer Commentaire",
+      "feedback": "Merci pour votre avis!",
+      "helper": "Veuillez ajouter vos commentaires sur l'utilisation de botpress",
+      "modalTitle": "Commentaire",
+      "moreContent": "Fournir des commentaires supplémentaires",
+      "question": "Quelle est la probabilité que vous nous recommandiez à vos amis et collègues?",
+      "title": "Ajouter vos commentaires sur botpress",
+      "worstLabel": "Pas du tout probable"
     },
     "newPassword": "Nouveau mot de passe",
     "pageRestrictedToAdmins": "Cette page est réservée aux super-administrateurs",

@@ -54,6 +54,7 @@ export const startMessagingServer = async (opts: Partial<MessagingServerOptions>
     NODE_OPTIONS: '',
     PORT: port.toString(),
     EXTERNAL_URL: `${opts.EXTERNAL_URL}/api/v1/messaging`,
+    ADMIN_KEY: process.INTERNAL_PASSWORD,
     INTERNAL_PASSWORD: process.INTERNAL_PASSWORD,
     ENCRYPTION_KEY: '', // we disable encryption for now,
     DATABASE_URL: process.core_env.DATABASE_URL || `${process.PROJECT_LOCATION}/data/storage/core.sqlite`,
@@ -68,6 +69,8 @@ export const startMessagingServer = async (opts: Partial<MessagingServerOptions>
     SPINNED: 'true',
     SPINNED_URL: `http://localhost:${opts.CORE_PORT}/api/v1/chat/receive`,
     NO_LAZY_LOADING: 'true',
+    ENABLE_LEGACY_CHANNELS: 'true',
+    DISABLE_SOCKETS: 'true',
     // Needed for legacy twilio validation
     MASTER_URL: opts.EXTERNAL_URL
   }

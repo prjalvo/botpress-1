@@ -12,7 +12,11 @@
       "resolvedIncidents": "Resolved Incidents",
       "timeFrame": "Time Frame",
       "timespanHour": "1 hour",
-      "timespanHours": "{nb} hours"
+      "timespanHours": "{nb} hours",
+      "deprWarning": {
+        "title": "Deprecation Warning",
+        "msg": "We will end support for custom modules in Botpress 13. A migration guide will be provided for skills and Webchat Custom Components. For other extension points, use standalone hooks and actions."
+      }
     },
     "authenticationFailed": "Authentication failed",
     "botpressIsNotLicensed": "Botpress is currently not licensed. Please update your license to re-enable all features.",
@@ -173,6 +177,19 @@
       "restartNow": "Restart server now",
       "serverControl": "Server Control",
       "youAreAboutToRestart": "You are about to restart the Botpress server hosted on"
+    },
+    "netPromotingScore": {
+      "addComment": "Added Comment",
+      "bestLabel": "Extremely likely",
+      "button": "Submit Comment",
+      "error": "Could not sent the comment to botpress",
+      "feedback": "Thank you for your feedback!",
+      "helper": "Tell us all the details.",
+      "modalTitle": "Type your comment:",
+      "moreContent": "Provide Additional Feedback",
+      "question": "How likely are you to recommend us to your friends and colleagues?",
+      "title": "Send Feedback to Botpress",
+      "worstLabel": "Not at all likely"
     },
     "newPassword": "New Password",
     "pageRestrictedToAdmins": "This page is restricted to Super Admins",
