@@ -20,6 +20,7 @@
     "version": "1.1.2"
   },
   "scripts": {    
+    "cmd":"yarn install",
     "heroku-prebuild": "npm install --only=dev",
     "start": "yarn workspace botpress start",
     "cmd": "yarn run gulp",
