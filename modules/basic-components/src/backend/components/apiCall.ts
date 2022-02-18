@@ -28,11 +28,14 @@ const createNodes = () => {
           node: 'call_from_previous_answer'
         }
       ],
-      onEnter: [
+      onEnter: <any>[
         {
-          name: 'builtin_text',
-          type: sdk.NodeActionType.RenderElement,
-          args: { type: 'text', text: "Ask Question - What's your favorite ice cream Flavor ?" }
+          contentType: 'builtin_text',
+          FormData: {
+            text$en: "Ask Question - What's your favorite ice cream Flavor ?",
+            markdown$en: true,
+            typing$en: true
+          }
         }
       ],
       onReceive: ['builtin/setVariable {"type":"temp","name":"flavor","value":"{{event.payload.text}}"}']
@@ -46,11 +49,10 @@ const createNodes = () => {
           node: 'END'
         }
       ],
-      onEnter: [
+      onEnter: <any>[
         {
-          name: 'builtin_text',
-          type: sdk.NodeActionType.RenderElement,
-          args: { type: 'text', text: '{{temp.flavor}}' }
+          contentType: 'builtin_text',
+          formData: { text$en: 'Hello hello', markdown$en: true, typing$en: true }
         }
       ],
       onReceive: null,
@@ -74,6 +76,7 @@ const skillsFlow = () => {
     {
       skill: 'CallAPI',
       name: 'call_from_previous_anwser',
+      startNode: 'call_from_previous_anwser',
       skillData: {
         randomId: prettyId(),
         method: 'post',
@@ -88,6 +91,7 @@ const skillsFlow = () => {
     {
       skill: 'choice',
       name: 'show_output',
+      startNode: 'show_output',
       skillData: {
         randomId: prettyId(),
         invalidContentId: '',

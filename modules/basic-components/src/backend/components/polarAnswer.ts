@@ -28,9 +28,8 @@ const createNodes = () => {
       ],
       onEnter: [
         {
-          name: 'builtin_text',
-          type: sdk.NodeActionType.RenderElement,
-          args: { type: 'text', text: 'Yes answer' }
+          name: 'Yes Answer',
+          type: sdk.NodeActionType.RenderText
         }
       ],
       onReceive: null,
@@ -45,9 +44,7 @@ const createNodes = () => {
           node: ''
         }
       ],
-      onEnter: [
-        { name: 'builtin_text', type: sdk.NodeActionType.RenderElement, args: { type: 'text', text: 'No answer' } }
-      ],
+      onEnter: [{ name: 'No answer', type: sdk.NodeActionType.RenderText }],
       onReceive: null,
       type: 'standard'
     },
