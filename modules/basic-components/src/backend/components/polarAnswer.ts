@@ -26,10 +26,11 @@ const createNodes = () => {
           node: ''
         }
       ],
-      onEnter: [
+
+      onEnter: <any>[
         {
-          name: 'Yes Answer',
-          type: sdk.NodeActionType.RenderText
+          contentType: 'builtin_text',
+          formData: { text$en: 'Yes answer', markdown$en: true, typing$en: true }
         }
       ],
       onReceive: null,
@@ -44,7 +45,12 @@ const createNodes = () => {
           node: ''
         }
       ],
-      onEnter: [{ name: 'No answer', type: sdk.NodeActionType.RenderText }],
+      onEnter: <any>[
+        {
+          contentType: 'builtin_text',
+          formData: { text$en: 'No answer', markdown$en: true, typing$en: true }
+        }
+      ],
       onReceive: null,
       type: 'standard'
     },
@@ -57,28 +63,25 @@ const createNodes = () => {
           node: 'choice-fe0bb7'
         }
       ],
-      onEnter: [
+      onEnter: <any>[
         {
-          name: 'builtin_single-choice',
-          type: sdk.NodeActionType.RenderElement,
-          args: {
-            formData: {
-              dropdownPlaceholder$en: '',
-              choices$en: [
-                {
-                  title: 'Yes',
-                  value: 'yes'
-                },
-                {
-                  title: 'No',
-                  value: 'no'
-                }
-              ],
-              markdown$en: true,
-              disableFreeText$en: true,
-              typing$en: true,
-              text$en: 'Yes/No Question'
-            }
+          contentType: 'builtin_single-choice',
+          formData: {
+            dropdownPlaceholder$en: '',
+            choices$en: [
+              {
+                title: 'Yes',
+                value: 'yes'
+              },
+              {
+                title: 'No',
+                value: 'no'
+              }
+            ],
+            markdown$en: true,
+            disableFreeText$en: true,
+            typing$en: true,
+            text$en: 'Yes/No Question'
           }
         }
       ],
