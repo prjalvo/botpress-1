@@ -21,7 +21,6 @@
   },
   "scripts": {    
     "heroku-prebuild": "npm install --only=dev",
-    "postinstall": "yarn cmd postinstall",    
     "start": "yarn workspace botpress start",
     "cmd": "yarn run gulp",
     "build": "yarn cmd build",
